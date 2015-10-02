@@ -11,9 +11,9 @@
 
 class Database {
 
-    private static $dsn = 'mysql:host=mysql.designeroid.com;dbname=idk_custom;charset=utf8';
-    private static $username = 'idkdev';
-    private static $password = 'dev3I0^Ql9x56s5qekO2&u1YjKFrvEV';
+    private static $dsn = 'mysql:host=mysql.designeroid.com;dbname=rsihackathon;charset=utf8';
+    private static $username = 'rsihackathon';
+    private static $password = 'majormel37';
     private static $db;
 
     function __construct(){}

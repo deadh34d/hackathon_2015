@@ -1,0 +1,23 @@
+li {
+    display: block;
+    float: left;
+    margin: 3px;
+}
+
+#housesTable, #communitiesTable {
+    display: block;
+    clear: left;
+}
+
+#housesTable {
+    width: 100%;
+}
+
+html, body, #map-canvas {
+    height: 90%;
+    width: 90%;
+    margin: 0;
+    padding: 0;
+}
+
+

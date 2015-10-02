@@ -1,0 +1,37 @@
+#php_value include_path 'C:\wamp\www\idk_clone\idk'
+RewriteEngine On
+
+#RewriteRule ^home/([0-9]+)$ admin/index.php?id=$1
+
+#used for editing and deleting homes
+RewriteRule ^home/([0-9]+)/([a-z_]+)$ admin/index.php?action=$2&id=$1
+
+RewriteRule ^home$ index.php
+
+RewriteRule ^home\/([0-9]+)|home\/([0-9]+)\/$ homes/index.php?action=view_home&id=$1
+RewriteRule ^our-communities$ view/communities.php
+
+RewriteRule ^carousel/([0-9]+)/([a-z_]+)$ carousel/index.php?action=$2&id=$1
+
+RewriteRule ^carousel\/([0-9]+)|carousel\/([0-9]+)\/$ carousel/index.php?action=view_slider&id=$1
+#this will take any url that ends in /home/*, with * being
+#any number or sequence of numbers, and pass that to the backtick reference ($1 in the second part of the url)
+#we then parse intval($_GET['id']) or something along those lines to display the correct singular home. This will
+#make it so that if a user looks at the url bar, it will _still_ show http://desingeroid.com/home/1 instead of
+#a long query string, which looks ugly and adds to the length of the URL.
+RewriteRule ^browse|browse/$ homes/index.php?action=view_all_homes
+RewriteRule ^careers$ contact/index.php?action=careers
+RewriteRule ^contact$ contact/index.php?action=contact
+RewriteRule ^$ index.php?action=null
+RewriteRule ^privacy$ view/privacy.php
+#RewriteRule TODO priority-email-list
+#RewriteRule TODO testimonials
+#RewriteRule TODO About
+RewriteRule ^warranty$ view/warranty.php
+
+#Coming soon
+
+RewriteRule ^testimonials$ view/testimonials.php
+RewriteRule ^email$ view/comingsoon.php
+
+RewriteRule ^BuilderTREND-Client-Login$ buildertrend/index.php

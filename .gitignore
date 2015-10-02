@@ -1,0 +1,4 @@
+#Database connector file
+/model/classes/database*
+config.php
+.idea/*

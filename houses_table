@@ -1,0 +1,17 @@
+CREATE TABLE IF NOT EXISTS `houses` (
+  `SD` char(30) NOT NULL DEFAULT '',
+  `lot` char(3) NOT NULL DEFAULT '',
+  `sold` tinyint(1) DEFAULT NULL,
+  `street_num` char(5) DEFAULT NULL,
+  `street_name` char(30) DEFAULT NULL,
+  `city` char(30) DEFAULT NULL,
+  `state` char(2) DEFAULT NULL,
+  `zip` char(5) DEFAULT NULL,
+  `plan_name` char(4) DEFAULT NULL,
+  `sales_price` decimal(9,2) DEFAULT NULL,
+  `elevation` char(1) DEFAULT NULL,
+  `finish` char(25) DEFAULT NULL,
+  PRIMARY KEY (`SD`,`lot`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+//Just saw the create_db file, this is obsolete

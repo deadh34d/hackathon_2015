@@ -1,23 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
-  <data-source name="MySQL - rsihackathon@mysql.designeroid.com" uuid="27fae83c-7af2-41a5-a6a0-6cf8a61a0d74">
+  <data-source name="MySQL - idk_custom@mysql.joehalbert.com" uuid="f6d463c8-fd58-483e-aa60-a3a24c104f0f">
     <database-info product="MySQL" version="5.1.56-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
       <extra-name-characters>#@</extra-name-characters>
       <identifier-quote-string>`</identifier-quote-string>
     </database-info>
     <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
-    <schema name="" catalog="rsihackathon"/>
-    <table name="jobs" schema="" catalog="rsihackathon" type="TABLE">
-      <column name="job_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="company_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
-      <column name="job_title" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
-      <column name="description" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
-      <column name="location" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
-      <column name="create_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
-      <primary-key name="PRIMARY" columns="job_id"/>
+    <schema name="" catalog="idk_custom"/>
+    <table name="administrators" schema="" catalog="idk_custom" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="sessionID" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="enabled" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MQ=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_email" unique="true" columns="email"/>
+      <index name="unique_id" unique="true" columns="id"/>
+      <index name="unique_username" unique="true" columns="username"/>
     </table>
-    <table name="test" schema="" catalog="rsihackathon" type="TABLE">
-      <column name="asdf" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+    <table name="baths" schema="" catalog="idk_custom" type="TABLE">
+      <column name="bath" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="bath"/>
+    </table>
+    <table name="beds" schema="" catalog="idk_custom" type="TABLE">
+      <column name="bed" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="bed"/>
+    </table>
+    <table name="cities" schema="" catalog="idk_custom" type="TABLE">
+      <column name="city" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="city"/>
+      <index name="unique_city" unique="true" columns="city"/>
+    </table>
+    <table name="editors" schema="" catalog="idk_custom" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="username" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="disabled" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_email" unique="true" columns="email"/>
+      <index name="unique_id" unique="true" columns="id"/>
+      <index name="unique_username" unique="true" columns="username"/>
+    </table>
+    <table name="elevations" schema="" catalog="idk_custom" type="TABLE">
+      <column name="elevation" sqlType="CHAR" precision="1" scale="0" nullable="false" jdbcType="1"/>
+      <primary-key name="PRIMARY" columns="elevation"/>
+    </table>
+    <table name="finishes" schema="" catalog="idk_custom" type="TABLE">
+      <column name="finish" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="finish"/>
+      <index name="unique_finish" unique="true" columns="finish"/>
+    </table>
+    <table name="homes" schema="" catalog="idk_custom" type="TABLE">
+      <column name="subdivision" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="lot" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="sold" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="street_number" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="street_name" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="state" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="zip_code" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="plan_name" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="sales_price" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="elevation" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="finish" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="square_footage" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="beds" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="baths" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="description" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="mls" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="realtor_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="x_coord" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="y_coord" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="primary_image" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_id" unique="true" columns="id"/>
+    </table>
+    <table name="images" schema="" catalog="idk_custom" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="url" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="description" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="home" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR" precision="40" scale="0" nullable="true" jdbcType="12"/>
+      <column name="thumbnail" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_preview_image" sqlType="TINYINT" precision="3" scale="0" nullable="true" jdbcType="-6" def="MA=="/>
+      <column name="local_url" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="is_banner_image" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="home_index" unique="false" columns="home"/>
+    </table>
+    <table name="infobuttons" schema="" catalog="idk_custom" type="TABLE">
+      <column name="title" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="description" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="color_1" sqlType="VARCHAR" precision="6" scale="0" nullable="false" jdbcType="12" def="JyMwMDAwMCc="/>
+      <column name="color_2" sqlType="VARCHAR" precision="6" scale="0" nullable="false" jdbcType="12" def="JyMwMDAwMCc="/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_id" unique="true" columns="id"/>
+    </table>
+    <table name="locations" schema="" catalog="idk_custom" type="TABLE">
+      <column name="city" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="state" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="x-coord" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <column name="y-coord" sqlType="DOUBLE" precision="22" scale="0" nullable="true" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="city"/>
+      <index name="unique_city" unique="true" columns="city"/>
+    </table>
+    <table name="lots" schema="" catalog="idk_custom" type="TABLE">
+      <column name="lot" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="lot"/>
+    </table>
+    <table name="plans" schema="" catalog="idk_custom" type="TABLE">
+      <column name="plan_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pdf_url" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="plan_name"/>
+    </table>
+    <table name="prices" schema="" catalog="idk_custom" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="price" sqlType="DOUBLE" precision="22" scale="0" nullable="false" jdbcType="8"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <index name="unique_id" unique="true" columns="id"/>
+    </table>
+    <table name="realtors" schema="" catalog="idk_custom" type="TABLE">
+      <column name="name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="url" sqlType="VARCHAR" precision="500" scale="0" nullable="true" jdbcType="12"/>
+      <column name="cell" sqlType="VARCHAR" precision="15" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="realtor_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="name"/>
+    </table>
+    <table name="sliders" schema="" catalog="idk_custom" type="TABLE">
+      <column name="description" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="local_url" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="url" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="title" sqlType="TEXT" precision="65535" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="sqfts" schema="" catalog="idk_custom" type="TABLE">
+      <column name="sqft" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="sqft"/>
+    </table>
+    <table name="states" schema="" catalog="idk_custom" type="TABLE">
+      <column name="state" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="state"/>
+    </table>
+    <table name="subdivisions" schema="" catalog="idk_custom" type="TABLE">
+      <column name="subdivision" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="subdivision"/>
+    </table>
+    <table name="users" schema="" catalog="idk_custom" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="email" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="zipcodes" schema="" catalog="idk_custom" type="TABLE">
+      <column name="zip" sqlType="VARCHAR" precision="5" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="zip"/>
     </table>
   </data-source>
 </component>

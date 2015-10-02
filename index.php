@@ -1,17 +1,21 @@
 <?php
-if(isset($_POST['action'])) {
+
+require_once('./config.php');
+require_once('model/home.class.php');
+
+if (isset($_POST['action'])) {
     $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
-}
-elseif(isset($_GET['action'])) {
+} else if (isset($_GET['action'])) {
     $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
-}
-else {
+} else {
     $action = 'default';
 }
 
-switch($action) {
-    case 'default':
-        //todo: default behavior
+switch ($action) {
+    default:
+        $page = 'home';
+        $home = new Home();
+        $sliders = $home->get_sliders();
+        include('view/carousel.php');
         break;
 }
-?>
